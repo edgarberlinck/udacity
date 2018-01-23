@@ -59,3 +59,4 @@ typings/
 
 Machine Learning/maildir
 Machine Learning/*.tar.gz
+*.pyc
