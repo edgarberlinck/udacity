@@ -27,7 +27,10 @@ features_train, features_test, labels_train, labels_test = preprocess()
 from sklearn.naive_bayes import GaussianNB
 classifier = GaussianNB()
 
-n = 8000 # Precismos cortar o array pq está dando memory error
+### We need to chunk this array to prevent Memory Error. 
+### If you experience this kind of problem you should reduce to 
+### a lower number (Try 500 for example)
+n = 8000
 
 t0 = time()
 classifier.fit(features_train[0:n], labels_train[0:n])
