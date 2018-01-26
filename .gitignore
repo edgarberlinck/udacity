@@ -1,3 +1,5 @@
-Machine Learning/maildir
-Machine Learning/*.tar.gz
 *.pyc
+enron_mail_20150507.tar.gz
+maildir
+.DS_Store
+settings.json

@@ -30,18 +30,22 @@ classifier = GaussianNB()
 ### We need to chunk this array to prevent Memory Error. 
 ### If you experience this kind of problem you should reduce to 
 ### a lower number (Try 500 for example)
-n = 8000
-
 t0 = time()
-classifier.fit(features_train[0:n], labels_train[0:n])
+classifier.fit(features_train, labels_train)
 print "tempo de treinamento:", round(time()-t0, 3), "s"
 
 t0 = time()
-pred = classifier.predict(features_test[0:n])
-print "tempo de treinamento:", round(time()-t0, 3), "s"
+pred = classifier.predict(features_test) # Try to predict the correct label
+print "tempo de predict:", round(time()-t0, 3), "s"
+
+mailsFromChris = 0;
+for key in pred:
+    if key == 1:
+        mailsFromChris += 1
+print "Mails from Chris", mailsFromChris
 
 from sklearn.metrics import accuracy_score
-print accuracy_score(labels_test[0:n], pred)
+print "accuracy_score", accuracy_score(labels_test, pred)
 #########################################################
 
 
